@@ -83,18 +83,65 @@ function earthquake() {
 earthquake();
 //5.
 function checkPrime(numArr) {
-  let i,
-    flag = true;
-  for (let index = 0; index < numArr.length - 1; index++) {
-    for (i = 2; i <= (numArr[index] - 1); i++) {
-      if (numArr[index] % i == 0) {
-        flag = false;
-        break;
+  let flag = true;
+  for (let index = 0; index < numArr.length; index++) {
+    let num = numArr[index];
+    if (num <= 1) {
+      flag = false;
+    } else if (num <= 3) {
+      flag = true;
+    } else if (num % 2 === 0 || num % 3 === 0) {
+      flag = false;
+    } else {
+      for (let i = 5; i * i <= num; i += 6) {
+        if (num % i === 0 || num % (i + 2) === 0) {
+          flag = false;
+          break;
+        }
       }
     }
   }
-  if (flag == true) console.log(numArr[index] + " is prime");
-  else console.log(numArr[index] + " is not prime");
+  if (flag) {
+    console.log(" is prime");
+  } else {
+    console.log(" is not prime");
+  }
 }
-checkPrime([4,5]);
+checkPrime([3, 2]);
+//6.
+function merge(strA, strB) {
+  let strC = "";
+  let lenA = strA.length;
+  let lenB = strB.length;
+  let i =0;
+  let total = 0;
+  while (lenA > 0 || lenB > 0) {
+    if (strA[i] == null) {
+      strC += "*";
+      total++;
+    }
+    else {
+        strC += strA[i];
+    }
+     lenA --;
+    if (strB[i] == null) {
+      strC += "*";
+      total++
+    }
+    else{
+        strC += strB[i]; 
+    }
+    lenB --;
+    i++;
+    if (strA[i] == "*") {
+        total ++;
+    }
+    if (strB[i] == "*") {
+        total ++;
+    }
+  }
 
+  console.log(strC, total);
+}
+
+merge("p*ython", "ja*va");
