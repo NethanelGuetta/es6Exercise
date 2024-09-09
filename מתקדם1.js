@@ -7,9 +7,12 @@ function getDirectiion(times, direction) {
   if (direction === true) {
     result += ">";
   } else if (direction === false) {
-    result.slice(0, 0, "<");
+    result = "<" + result;
   }
+  return result;
 }
+console.log(getDirectiion(5, false));
+
 //2.
 
 //3.
@@ -38,6 +41,7 @@ function reversed_triangle(num) {
   }
 }
 reversed_triangle(4);
+
 //5.
 function multi_table(num) {
   for (let index = 1; index <= num; index++) {
@@ -46,6 +50,7 @@ function multi_table(num) {
 }
 multi_table(10);
 //6.
+
 function reverseNum(num) {
   let numStr = num.toString();
   let reversedStr = "";
@@ -87,10 +92,11 @@ function thirdList(params) {
         multy1 *= list1[j];
       }
       total2 += list2[j];
-      
     }
-    list3.push( multy1 * total2)
+    list3.push(multy1 * total2);
   }
-  console.log(list3); 
+  console.log(list3);
 }
-thirdList()
+thirdList();
+
+
